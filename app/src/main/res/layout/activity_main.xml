@@ -6,291 +6,167 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ACD1CE"
-        app:titleTextColor="#A32701"
-        app:layout_collapseMode="pin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Simple Calculator"/>
+        android:text=""
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="93dp"
+        tools:ignore="MissingConstraints" />
 
-    <View
-        android:id="@+id/topLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/keypadTableLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1" />
-
-    <TextView
-        android:id="@+id/txt_expression"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="15dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="7"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="319dp" />
 
-    <TextView
-        android:id="@+id/txt_result"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="end"
-        android:textColor="#aaaaaa"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/keypadTableLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="8"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="319dp" />
 
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="319dp" />
 
-    <TableLayout
-        android:id="@+id/keypadTableLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingStart="15dp"
-        android:paddingTop="21dp"
-        android:paddingEnd="15dp"
-        android:paddingBottom="21dp"
-        android:shrinkColumns="*"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topLayout"
-        app:layout_constraintVertical_weight="1.5">
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="389dp" />
 
-        <TableRow android:layout_weight="1">
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="396dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="clearButtonClicked"
-                android:stateListAnimator="@null"
-                android:text="AC"
-                android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="389dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="backButtonClicked"
-                android:stateListAnimator="@null"
-                android:text="back"
-                android:drawableLeft="@drawable/ic_arrow_back"
-                android:textSize="12sp" />
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="471dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_mod"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="%"
-                android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="471dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_multi"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="X"
-                android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="471dp" />
 
-        </TableRow>
+    <Button
+        android:id="@+id/btn10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="544dp" />
 
-        <TableRow android:layout_weight="1">
+    <Button
+        android:id="@+id/btn11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="544dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_7"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="7"
-                android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="544dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_8"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="8"
-                android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="319dp"
+        tools:ignore="MissingConstraints" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_9"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="9"
-                android:textSize="24sp" />
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_div"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="/"
-                android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="389dp"
+        tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/btn15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="471dp"
+        tools:ignore="MissingConstraints" />
 
-        </TableRow>
+    <Button
+        android:id="@+id/btn16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ON"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="233dp"
+        tools:ignore="MissingConstraints" />
 
-        <TableRow android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_4"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="4"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="5"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_6"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="6"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_plus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="+"
-                android:textSize="24sp" />
-
-        </TableRow>
-
-        <TableRow android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="1"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="2"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="3"
-                android:textSize="24sp" />
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_minus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="-"
-                android:textSize="24sp" />
-
-
-        </TableRow>
-
-        <TableRow android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_00"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="00"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_0"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="buttonClicked"
-                android:stateListAnimator="@null"
-                android:text="0"
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_dot"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="dotButtonClicked"
-                android:stateListAnimator="@null"
-                android:text="."
-                android:textSize="24sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_result"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="7dp"
-                android:onClick="resultButtonClicked"
-                android:stateListAnimator="@null"
-                android:text="="
-                android:textSize="24sp" />
-        </TableRow>
-
-    </TableLayout>
+    <Button
+        android:id="@+id/btn17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AC"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="233dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

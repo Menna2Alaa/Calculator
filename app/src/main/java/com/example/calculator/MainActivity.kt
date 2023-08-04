@@ -1,172 +1,111 @@
 package com.example.calculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.SpannableStringBuilder
-import android.view.View
+import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import com.example.calculator.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
-    private val expressionTextView: TextView by lazy {
-        findViewById<TextView>(R.id.txt_expression)
-    }
-    private val resultTextView: TextView by lazy {
-        findViewById<TextView>(R.id.txt_result)
-    }
 
-    private var isOperator = false
-    private var hasOperator = false
+    private lateinit var textView : TextView
+    private lateinit var btn1 : Button
+    private lateinit var btn2: Button
+    private lateinit var btn3: Button
+    private lateinit var btn4: Button
+    private lateinit var btn5: Button
+    private lateinit var btn6: Button
+    private lateinit var btn7: Button
+    private lateinit var btn8: Button
+    private lateinit var btn9: Button
+    private lateinit var btn10: Button
+    private lateinit var btn11: Button
+    private lateinit var btn12: Button
+    private lateinit var btn13: Button
+    private lateinit var btn14: Button
+    private lateinit var btn15: Button
+    private lateinit var btn16: Button
+    private lateinit var btn17: Button
+
+
+    private var num1 = 0
+    private var num2 = 0
+    private var operator = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-    fun buttonClicked(v: View) {
-        when (v.id) {
-            R.id.btn_00 -> numberButtonClicked("00")
-            R.id.btn_0 -> numberButtonClicked("0")
-            R.id.btn_1 -> numberButtonClicked("1")
-            R.id.btn_2 -> numberButtonClicked("2")
-            R.id.btn_3 -> numberButtonClicked("3")
-            R.id.btn_4 -> numberButtonClicked("4")
-            R.id.btn_5 -> numberButtonClicked("5")
-            R.id.btn_6 -> numberButtonClicked("6")
-            R.id.btn_7 -> numberButtonClicked("7")
-            R.id.btn_8 -> numberButtonClicked("8")
-            R.id.btn_9 -> numberButtonClicked("9")
 
-            R.id.btn_plus -> operatorButtonClicked("+")
-            R.id.btn_minus -> operatorButtonClicked("-")
-            R.id.btn_multi -> operatorButtonClicked("X")
-            R.id.btn_div -> operatorButtonClicked("/")
-            R.id.btn_mod -> operatorButtonClicked("%")
+        textView = findViewById<TextView>(R.id.tv)
+        btn1 = findViewById<Button>(R.id.btn1)
+        btn2 = findViewById<Button>(R.id.btn2)
+        btn3 = findViewById<Button>(R.id.btn3)
+        btn4 = findViewById<Button>(R.id.btn4)
+        btn5 = findViewById<Button>(R.id.btn5)
+        btn6 = findViewById<Button>(R.id.btn6)
+        btn7 = findViewById<Button>(R.id.btn7)
+        btn8 = findViewById<Button>(R.id.btn8)
+        btn9 = findViewById<Button>(R.id.btn9)
+        btn10 = findViewById<Button>(R.id.btn10)
+        btn11 = findViewById<Button>(R.id.btn11)
+        btn12 = findViewById<Button>(R.id.btn12)
+        btn13 = findViewById<Button>(R.id.btn13)
+        btn14 = findViewById<Button>(R.id.btn14)
+        btn15 = findViewById<Button>(R.id.btn15)
+        btn16 = findViewById<Button>(R.id.btn16)
+        btn17 = findViewById<Button>(R.id.btn17)
+
+        btn1.setOnClickListener { addToInput("1") }
+        btn2.setOnClickListener { addToInput("2") }
+        btn3.setOnClickListener { addToInput("3") }
+        btn4.setOnClickListener { addToInput("4") }
+        btn5.setOnClickListener { addToInput("5") }
+        btn6.setOnClickListener { addToInput("6") }
+        btn7.setOnClickListener { addToInput("1") }
+        btn8.setOnClickListener { addToInput("2") }
+        btn9.setOnClickListener { addToInput("3") }
+        btn10.setOnClickListener { addToInput("0") }
+        btn11.setOnClickListener { equalsClicked() }
+        btn12.setOnClickListener { operator("+") }
+        btn13.setOnClickListener { operator("/") }
+        btn14.setOnClickListener { operator("*") }
+        btn15.setOnClickListener { operator("-") }
+        btn16.setOnClickListener { clear() }
+        btn17.setOnClickListener { open() }
+
+
+    }
+
+    private fun addToInput(str: String) {
+        textView.text = "${textView.text}$str"
+    }
+
+    private fun operator(op: String) {
+        if (textView.text.isNotEmpty()) {
+            num1 = textView.text.toString().toInt()
+            operator = op
+            textView.text = ""
         }
     }
 
-
-    private fun numberButtonClicked(number: String) {
-        if (isOperator) {
-            expressionTextView.append(" ")
-        }
-        isOperator = false
-
-        val expressionText = expressionTextView.text.split(" ")
-
-        expressionTextView.append(number)
-        resultTextView.text = calculateExpression()
-    }
-
-    private fun operatorButtonClicked(operator: String) {
-        if (expressionTextView.text.isEmpty()) {
-            return
-        }
-
-        when {
-            isOperator -> {
-                val text = expressionTextView.text.toString()
-                expressionTextView.text = text.dropLast(1) + operator
+    private fun equalsClicked() {
+        if (textView.text.isNotEmpty()) {
+            num2 = textView.text.toString().toInt()
+            var result = 0
+            when (operator) {
+                "+" -> result = num1 + num2
+                "/" -> result = num1 / num2
+                "*" -> result = num1 * num2
+                "-" -> result = num1 - num2
             }
-            hasOperator -> {
-                Toast.makeText(this, "연산자는 한번만 사용할 수 있습니다.", Toast.LENGTH_SHORT).show()
-                return
-            }
-            else -> {
-                expressionTextView.append(" $operator")
-            }
-
-        }
-        val ssb = SpannableStringBuilder(expressionTextView.text)
-
-        expressionTextView.text = ssb
-        isOperator = true
-        hasOperator = true
-    }
-
-    fun resultButtonClicked(v: View) {
-        val expressionTexts = expressionTextView.text.split(" ")
-        if (expressionTextView.text.isEmpty() || expressionTexts.size == 1) {
-            return
-        }
-        if (expressionTexts.size != 3 && hasOperator) {
-            Toast.makeText(this, "수식을 완성해주세요", Toast.LENGTH_SHORT).show()
-            return
-        }
-        if (expressionTexts[0].isNumber().not() || expressionTexts[2].isNumber().not()) {
-            Toast.makeText(this, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-
-            return
-        }
-        val expressionText = expressionTextView.text.toString()
-        val resultText = calculateExpression()
-
-        resultTextView.text =""
-        expressionTextView.text = resultText
-
-        isOperator = false
-        hasOperator = false
-
-    }
-
-
-    private fun calculateExpression(): String {
-        val expressionTexts = expressionTextView.text.split(" ")
-
-        if (hasOperator.not() || expressionTexts.size != 3) {
-            return ""
-        } else if (expressionTexts[0].isNumber().not() || expressionTexts[2].isNumber().not()) {
-            return ""
-        }
-        val exp1 = expressionTexts[0].toBigInteger()
-        val exp2 = expressionTexts[2].toBigInteger()
-        val op = expressionTexts[1]
-
-        return when (op) {
-            "+" -> (exp1 + exp2).toString()
-            "-" -> (exp1 - exp2).toString()
-            "X" -> (exp1 * exp2).toString()
-            "%" -> (exp1 % exp2).toString()
-            "/" -> (exp1 / exp2).toString()
-            else -> ""
+            textView.text = result.toString()
         }
     }
-    fun dotButtonClicked(v: View){
-        if(hasOperator != true) {
-            if (expressionTextView.text.length == 0) {
-                expressionTextView.append("0.")
-            } else if (!expressionTextView.text.toString().contains(".")) {
-                expressionTextView.append(".")
-            }
-        }else{
-            if(resultTextView.text.length ==0){
-                resultTextView.append("0.")
-            }else if(resultTextView.text.length !=0 &&resultTextView.text.toString().contains(".")){
-                resultTextView.append(".")
-            }
-        }
-
+    private fun clear() {
+        textView.text = ""
     }
-    fun clearButtonClicked(v: View) {
-        expressionTextView.text = ""
-        resultTextView.text = ""
-        isOperator = false
-        hasOperator =false
-    }
-    fun backButtonClicked(v: View){
-        expressionTextView.setText(expressionTextView.text.dropLast(1))
-        isOperator = false
-        hasOperator =false
-    }
-
-
-}
-
-fun String.isNumber(): Boolean {
-    return try {
-        this.toBigInteger()
-        true
-    } catch (e: NumberFormatException) {
-        false
+    private fun open() {
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_APP_CALCULATOR)
+        startActivity(intent)
     }
 }
