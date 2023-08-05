@@ -1,14 +1,17 @@
 package com.example.calculator
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textView : TextView
-    private lateinit var btn1 : Button
+    private lateinit var textView: TextView
+    private lateinit var btn1: Button
     private lateinit var btn2: Button
     private lateinit var btn3: Button
     private lateinit var btn4: Button
@@ -25,38 +28,38 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btn15: Button
     private lateinit var btn16: Button
     private lateinit var btn17: Button
+    private var toggle = true
 
-
-    private var num1 = 0
-    private var num2 = 0
+    private var num1 = 0L
+    private var num2 = 0L
     private var operator = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textView = findViewById<TextView>(R.id.tv)
-        btn1 = findViewById<Button>(R.id.btn1)
-        btn2 = findViewById<Button>(R.id.btn2)
-        btn3 = findViewById<Button>(R.id.btn3)
-        btn4 = findViewById<Button>(R.id.btn4)
-        btn5 = findViewById<Button>(R.id.btn5)
-        btn6 = findViewById<Button>(R.id.btn6)
-        btn7 = findViewById<Button>(R.id.btn7)
-        btn8 = findViewById<Button>(R.id.btn8)
-        btn9 = findViewById<Button>(R.id.btn9)
-        btn10 = findViewById<Button>(R.id.btn10)
-        btn11 = findViewById<Button>(R.id.btn11)
-        btn12 = findViewById<Button>(R.id.btn12)
-        btn13 = findViewById<Button>(R.id.btn13)
-        btn14 = findViewById<Button>(R.id.btn14)
-        btn15 = findViewById<Button>(R.id.btn15)
-        btn16 = findViewById<Button>(R.id.btn16)
-        btn17 = findViewById<Button>(R.id.btn17)
+        textView = findViewById(R.id.tv)
+        btn1 = findViewById(R.id.btn1)
+        btn2 = findViewById(R.id.btn2)
+        btn3 = findViewById(R.id.btn3)
+        btn4 = findViewById(R.id.btn4)
+        btn5 = findViewById(R.id.btn5)
+        btn6 = findViewById(R.id.btn6)
+        btn7 = findViewById(R.id.btn7)
+        btn8 = findViewById(R.id.btn8)
+        btn9 = findViewById(R.id.btn9)
+        btn10 = findViewById(R.id.btn10)
+        btn11 = findViewById(R.id.btn11)
+        btn12 = findViewById(R.id.btn12)
+        btn13 = findViewById(R.id.btn13)
+        btn14 = findViewById(R.id.btn14)
+        btn15 = findViewById(R.id.btn15)
+        btn16 = findViewById(R.id.btn16)
+        btn17 = findViewById(R.id.btn17)
 
-        btn1.setOnClickListener { addToInput("1") }
-        btn2.setOnClickListener { addToInput("2") }
-        btn3.setOnClickListener { addToInput("3") }
+        btn1.setOnClickListener { addToInput("7") }
+        btn2.setOnClickListener { addToInput("8") }
+        btn3.setOnClickListener { addToInput("9") }
         btn4.setOnClickListener { addToInput("4") }
         btn5.setOnClickListener { addToInput("5") }
         btn6.setOnClickListener { addToInput("6") }
@@ -69,10 +72,35 @@ class MainActivity : AppCompatActivity() {
         btn13.setOnClickListener { operator("/") }
         btn14.setOnClickListener { operator("*") }
         btn15.setOnClickListener { operator("-") }
-        btn16.setOnClickListener { clear() }
-        btn17.setOnClickListener { open() }
+        btn16.setOnClickListener { isCalculatorOn(toggle) }
+        btn17.setOnClickListener {
+            clear()
+        }
+    }
 
+    private fun isCalculatorOn(toggle: Boolean) {
+        btn1.isClickable = toggle
+        btn2.isClickable = toggle
+        btn3.isClickable = toggle
+        btn4.isClickable = toggle
+        btn5.isClickable = toggle
+        btn6.isClickable = toggle
+        btn7.isClickable = toggle
+        btn8.isClickable = toggle
+        btn9.isClickable = toggle
+        btn10.isClickable = toggle
+        btn11.isClickable = toggle
+        btn12.isClickable = toggle
+        btn13.isClickable = toggle
+        btn14.isClickable = toggle
+        btn15.isClickable = toggle
+        btn17.isClickable = toggle
+        if (toggle)
+            Toast.makeText(this, "Calculator On", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(this, "Calculator Off", Toast.LENGTH_SHORT).show()
 
+        this.toggle = !toggle
     }
 
     private fun addToInput(str: String) {
@@ -81,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun operator(op: String) {
         if (textView.text.isNotEmpty()) {
-            num1 = textView.text.toString().toInt()
+            num1 = textView.text.toString().toLong()
             operator = op
             textView.text = ""
         }
@@ -89,8 +117,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun equalsClicked() {
         if (textView.text.isNotEmpty()) {
-            num2 = textView.text.toString().toInt()
-            var result = 0
+            num2 = textView.text.toString().toLong()
+            var result = 0L
             when (operator) {
                 "+" -> result = num1 + num2
                 "/" -> result = num1 / num2
@@ -100,12 +128,19 @@ class MainActivity : AppCompatActivity() {
             textView.text = result.toString()
         }
     }
+
     private fun clear() {
         textView.text = ""
     }
-    private fun open() {
-        val intent = Intent(Intent.ACTION_MAIN)
-        intent.addCategory(Intent.CATEGORY_APP_CALCULATOR)
-        startActivity(intent)
+
+    fun openCalculatorApp(context: Context) {
+        val packageName = "com.example.calculator"
+        val launchIntent = context.packageManager.getLaunchIntentForPackage(packageName)
+
+        if (launchIntent != null) {
+            context.startActivity(launchIntent)
+        } else {
+            Toast.makeText(context, "Calculator app not found.", Toast.LENGTH_SHORT).show()
+        }
     }
 }

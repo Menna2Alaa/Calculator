@@ -13,15 +13,17 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="50sp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="93dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn17"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="319dp" />
@@ -30,7 +32,10 @@
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="8"
+        app:layout_constraintStart_toEndOf="@id/btn17"
+        app:layout_constraintTop_toBottomOf="@id/btn17"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="319dp" />
@@ -39,7 +44,10 @@
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="9"
+        app:layout_constraintStart_toEndOf="@id/btn2"
+        app:layout_constraintTop_toBottomOf="@id/btn17"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="215dp"
         tools:layout_editor_absoluteY="319dp" />
@@ -49,6 +57,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn1"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="389dp" />
@@ -57,7 +67,10 @@
         android:id="@+id/btn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="5"
+        app:layout_constraintStart_toEndOf="@id/btn17"
+        app:layout_constraintTop_toBottomOf="@id/btn2"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="396dp" />
@@ -66,7 +79,10 @@
         android:id="@+id/btn6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="6"
+        app:layout_constraintStart_toEndOf="@id/btn2"
+        app:layout_constraintTop_toBottomOf="@id/btn3"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="215dp"
         tools:layout_editor_absoluteY="389dp" />
@@ -76,6 +92,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn4"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="471dp" />
@@ -84,7 +102,10 @@
         android:id="@+id/btn8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="2"
+        app:layout_constraintStart_toEndOf="@id/btn17"
+        app:layout_constraintTop_toBottomOf="@id/btn5"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="471dp" />
@@ -93,7 +114,10 @@
         android:id="@+id/btn9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="3"
+        app:layout_constraintStart_toEndOf="@id/btn2"
+        app:layout_constraintTop_toBottomOf="@id/btn6"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="215dp"
         tools:layout_editor_absoluteY="471dp" />
@@ -103,6 +127,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn7"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="544dp" />
@@ -111,16 +137,23 @@
         android:id="@+id/btn11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="="
+        app:layout_constraintEnd_toEndOf="@id/btn9"
+        app:layout_constraintStart_toStartOf="@id/btn8"
+        app:layout_constraintTop_toBottomOf="@id/btn8"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="544dp" />
 
     <Button
         android:id="@+id/btn12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="+"
+        app:layout_constraintStart_toEndOf="@id/btn3"
+        app:layout_constraintTop_toBottomOf="@id/btn15"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="323dp"
         tools:layout_editor_absoluteY="544dp" />
@@ -129,44 +162,60 @@
         android:id="@+id/btn13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="/"
+        app:layout_constraintStart_toEndOf="@id/btn3"
+        app:layout_constraintTop_toBottomOf="@id/btn16"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="319dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="319dp" />
 
     <Button
         android:id="@+id/btn14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="*"
+        app:layout_constraintStart_toEndOf="@id/btn3"
+        app:layout_constraintTop_toBottomOf="@id/btn13"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="389dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="389dp" />
 
     <Button
         android:id="@+id/btn15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:text="-"
+        app:layout_constraintStart_toEndOf="@id/btn3"
+        app:layout_constraintTop_toBottomOf="@id/btn14"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="471dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="471dp" />
 
     <Button
         android:id="@+id/btn16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:text="ON"
+        app:layout_constraintStart_toEndOf="@id/btn3"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="233dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="233dp" />
 
     <Button
         android:id="@+id/btn17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="AC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="233dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="233dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
